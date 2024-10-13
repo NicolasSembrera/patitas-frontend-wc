@@ -58,7 +58,6 @@ public class LoginControllerAsync {
 
     @PostMapping("log_out")
     public Mono<Void> CerrarSesion(@RequestBody LogOutRequestDTO logOutRequestDTO) {
-        System.out.println("qwe");
         try {
            return webClientAutenticacion.post()
                     .uri("/logout")
