@@ -5,13 +5,12 @@ package pe.edu.cibertec.patitas_frontend_wc_a.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClient;
+import pe.edu.cibertec.patitas_frontend_wc_a.DTO.LogOutRequestDTO;
 import pe.edu.cibertec.patitas_frontend_wc_a.DTO.LoginRequestDTO;
 import pe.edu.cibertec.patitas_frontend_wc_a.DTO.LoginResponseDTO;
+import pe.edu.cibertec.patitas_frontend_wc_a.client.AutenticacionClient;
 import pe.edu.cibertec.patitas_frontend_wc_a.viewmodel.LoginModel;
 import reactor.core.publisher.Mono;
 
@@ -22,6 +21,7 @@ public class LoginController {
 
     @Autowired
     WebClient webClientAutenticacion;
+
 
     @GetMapping("/inicio")
     public String inicio(Model model) {
@@ -86,6 +86,7 @@ public class LoginController {
 
         }
 
+
     }
 
-}
+ }

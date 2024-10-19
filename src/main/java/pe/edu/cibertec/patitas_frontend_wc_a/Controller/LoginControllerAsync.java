@@ -7,6 +7,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import pe.edu.cibertec.patitas_frontend_wc_a.DTO.LogOutRequestDTO;
 import pe.edu.cibertec.patitas_frontend_wc_a.DTO.LoginRequestDTO;
 import pe.edu.cibertec.patitas_frontend_wc_a.DTO.LoginResponseDTO;
+import pe.edu.cibertec.patitas_frontend_wc_a.client.AutenticacionClient;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -16,6 +17,7 @@ public class LoginControllerAsync {
 
     @Autowired
     WebClient webClientAutenticacion;
+
 
     @PostMapping("/autenticar-async")
     public Mono<LoginResponseDTO> autenticar(@RequestBody LoginRequestDTO loginRequestDTO) {
@@ -59,7 +61,7 @@ public class LoginControllerAsync {
     @PostMapping("log_out")
     public Mono<Void> CerrarSesion(@RequestBody LogOutRequestDTO logOutRequestDTO) {
         try {
-           return webClientAutenticacion.post()
+            return webClientAutenticacion.post()
                     .uri("/logout")
                     .accept(MediaType.APPLICATION_JSON)
                     .body(Mono.just(logOutRequestDTO), LogOutRequestDTO.class)
@@ -74,3 +76,4 @@ public class LoginControllerAsync {
     }
 
 }
+
